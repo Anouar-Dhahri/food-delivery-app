@@ -1,0 +1,128 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">{{titre}}</div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="page__content-data">
+      <mat-card>
+        <form [formGroup]="workerForm" autocomplete="off" (ngSubmit)="formAction()">
+          <mat-grid-list cols="2" rowHeight="100px">
+
+            <mat-grid-tile>
+              <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Name" formControlName="name" />
+                <mat-error *ngIf="workerForm.get('name')?.hasError('required')">
+                  Enter employee name
+                </mat-error>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field appearance="outline">
+                <mat-label>Surname</mat-label>
+                <input matInput placeholder="Surname" formControlName="surname" />
+                <mat-error *ngIf="workerForm.get('surname')?.hasError('required')">
+                  Enter employee surname 
+                </mat-error>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field appearance="outline">
+                <mat-label>Phone Number</mat-label>
+                <input matInput placeholder="hone Number" formControlName="phone" type="number"/>
+                <mat-error *ngIf="workerForm.get('phone')?.hasError('required')">
+                  Enter phone number
+                </mat-error>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email address" formControlName="email" />
+                <mat-error *ngIf="workerForm.get('email')?.hasError('required')">
+                  Enter email
+                </mat-error>
+                <mat-error *ngIf="workerForm.get('email')?.hasError('email')">
+                  Invalid Email
+                </mat-error>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" formControlName="password" />
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="workerForm.get('password')?.hasError('required')">
+                  Enter your password
+                </mat-error>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field appearance="outline">
+                <mat-label>State</mat-label>
+                <mat-select formControlName="state">
+                  <mat-option value="Ariana">Ariana</mat-option>
+                  <mat-option value="Béja">Béja</mat-option>
+                  <mat-option value="Ben Arous">Ben Arous</mat-option>
+                  <mat-option value="Bizerte">Bizerte</mat-option>
+                  <mat-option value="Gabès">Gabès</mat-option>
+                  <mat-option value="Gafsa">Gafsa</mat-option>
+                  <mat-option value="Jendouba">Jendouba</mat-option>
+                  <mat-option value="Kairouan">Kairouan</mat-option>
+                  <mat-option value="Kasserine">Kasserine</mat-option>
+                  <mat-option value="Kébili">	Kébili</mat-option>
+                  <mat-option value="Kef">Kef</mat-option>
+                  <mat-option value="Mahdia">Mahdia</mat-option>
+                  <mat-option value="Manouba">Manouba</mat-option>
+                  <mat-option value="Médenine">Médenine</mat-option>
+                  <mat-option value="	Monastir">	Monastir</mat-option>
+                  <mat-option value="Nabeul">Nabeul</mat-option>
+                  <mat-option value="Sfax">Sfax</mat-option>
+                  <mat-option value="Sidi Bouzid">Sidi Bouzid</mat-option>
+                  <mat-option value="Siliana">Siliana</mat-option>
+                  <mat-option value="Sousse">Sousse</mat-option>
+                  <mat-option value="Tataouine">Tataouine</mat-option>
+                  <mat-option value="Tozeur">Tozeur</mat-option>
+                  <mat-option value="Tunis">Tunis</mat-option>
+                  <mat-option value="Zaghouan">Zaghouan</mat-option>
+                </mat-select>
+                <mat-error *ngIf="workerForm.get('state')?.hasError('required')">
+                  Choose State
+                </mat-error>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field appearance="outline">
+                <mat-label>Restaurent</mat-label>
+                <mat-select formControlName="restaurantId">
+                  <mat-option value="">Select un Restaurent</mat-option>
+                  <mat-option *ngFor="let item of dataSource" [value]="item._id">{{ item.name }}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="workerForm.get('restaurantId')?.hasError('required')">
+                  Choose a Restaurant
+                </mat-error>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              
+            </mat-grid-tile>
+
+            <mat-grid-tile class="action">
+              <button mat-button color="primary" type="submit">SUBMIT</button>
+              <button mat-stroked-button color="warn" type="reset">RESET</button>
+            </mat-grid-tile>
+
+          </mat-grid-list>
+        </form>
+          
+      </mat-card>
+    </div>
+  </div>
+</div>

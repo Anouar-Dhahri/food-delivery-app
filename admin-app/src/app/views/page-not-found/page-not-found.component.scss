@@ -1,0 +1,21 @@
+.lostContainer{
+  width:100%;
+  height: 100%;
+  background-image: url('./../../../assets/pageNotFound.svg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+
+  h1 {
+    padding:30px;
+    font-size: 70px;
+    text-transform: uppercase;
+  }
+  button {
+    width:20%;
+    height:50px;
+    margin-top: calc(100vh - 200px);
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,33 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">{{titre}}</div>
+    <div class="page__content shadow p-3 position-relative">
+      <div class="page__content-data">
+        <mat-card>
+          <form [formGroup]="validForm" autocomplete="off" (ngSubmit)="formAction()">
+            <mat-grid-list cols="1" rowHeight="100px">
+  
+              <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                  <mat-label>Employe</mat-label>
+                  <mat-select formControlName="employe">
+                    <mat-option *ngFor="let employe of employes" [value]="employe._id">{{ employe.name + " "+employe.surname}}</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="validForm.get('employe')?.hasError('required')">
+                    Choose an Employee
+                  </mat-error>
+                </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <button mat-button color="primary" type="submit">SUBMIT</button>
+                <button mat-stroked-button color="warn" type="reset">RESET</button>
+              </mat-grid-tile>
+  
+            </mat-grid-list>
+          </form>
+            
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  

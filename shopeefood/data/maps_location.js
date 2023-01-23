@@ -1,0 +1,22 @@
+export const mapsLocations = [
+  {
+    latitude:33.8850526,
+    longitude:10.0867194,
+  },
+  {
+    latitude:33.8853858,
+    longitude:10.0857775
+  },
+  {
+    latitude:33.8853858,
+    longitude:10.0857775
+  },
+  {
+    latitude:33.8884187,
+    longitude:10.091139
+  },
+  {
+    latitude:33.8874789,
+    longitude:10.1022386
+  }
+]

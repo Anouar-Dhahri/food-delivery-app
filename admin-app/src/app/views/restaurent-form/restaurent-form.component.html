@@ -1,0 +1,114 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">{{titre}}</div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="page__content-data">
+      <mat-card>
+        <form [formGroup]="restaurentForm" autocomplete="off" (ngSubmit)="formAction()">
+          <mat-grid-list cols="2" rowHeight="100px">
+
+            <mat-grid-tile>
+              <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Name" formControlName="name" />
+                <mat-error *ngIf="restaurentForm.get('name')?.hasError('required')">
+                  Enter Restaurant Name
+                </mat-error>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field appearance="outline">
+                <mat-label>State</mat-label>
+                <mat-select formControlName="state">
+                  <mat-option value="Ariana">Ariana</mat-option>
+                  <mat-option value="Béja">Béja</mat-option>
+                  <mat-option value="Ben Arous">Ben Arous</mat-option>
+                  <mat-option value="Bizerte">Bizerte</mat-option>
+                  <mat-option value="Gabès">Gabès</mat-option>
+                  <mat-option value="Gafsa">Gafsa</mat-option>
+                  <mat-option value="Jendouba">Jendouba</mat-option>
+                  <mat-option value="Kairouan">Kairouan</mat-option>
+                  <mat-option value="Kasserine">Kasserine</mat-option>
+                  <mat-option value="Kébili">	Kébili</mat-option>
+                  <mat-option value="Kef">Kef</mat-option>
+                  <mat-option value="Mahdia">Mahdia</mat-option>
+                  <mat-option value="Manouba">Manouba</mat-option>
+                  <mat-option value="Médenine">Médenine</mat-option>
+                  <mat-option value="	Monastir">	Monastir</mat-option>
+                  <mat-option value="Nabeul">Nabeul</mat-option>
+                  <mat-option value="Sfax">Sfax</mat-option>
+                  <mat-option value="Sidi Bouzid">Sidi Bouzid</mat-option>
+                  <mat-option value="Siliana">Siliana</mat-option>
+                  <mat-option value="Sousse">Sousse</mat-option>
+                  <mat-option value="Tataouine">Tataouine</mat-option>
+                  <mat-option value="Tozeur">Tozeur</mat-option>
+                  <mat-option value="Tunis">Tunis</mat-option>
+                  <mat-option value="Zaghouan">Zaghouan</mat-option>
+                </mat-select>
+                <mat-error *ngIf="restaurentForm.get('state')?.hasError('required')">
+                  Choose State
+                </mat-error>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field appearance="outline">
+                <mat-label>Image</mat-label>
+                <!--<input matInput placeholder="Image" formControlName="image" type="file"/>-->
+                <ngx-mat-file-input formControlName="image" placeholder="Image"  accept=".png, .jpg, .jpeg"></ngx-mat-file-input>
+                <mat-error *ngIf="restaurentForm.get('image')?.hasError('required')">
+                  Choose Picture
+                </mat-error>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field appearance="outline">
+                <mat-label>Speciality</mat-label>
+                <mat-select formControlName="speciality">
+                  <mat-option value="">Choose Speciality</mat-option>
+                  <mat-option value="Fish">Fish</mat-option>
+                  <mat-option value="Meats">Meats</mat-option>
+                  <mat-option value="Roasted Chicken">Roasted Chicken</mat-option>
+                  <mat-option value="Hamburger">Hamburger</mat-option>
+                  <mat-option value="Pizza">Pizza</mat-option>
+                  <mat-option value="Dishes">Dishes</mat-option>
+                </mat-select>
+                <mat-error *ngIf="restaurentForm.get('speciality')?.hasError('required')">
+                  Choose a Specialty
+                </mat-error>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field appearance="outline">
+                <mat-label>Phone</mat-label>
+                <input matInput placeholder="Phone Number" formControlName="phone" type="number"/>
+                <mat-error *ngIf="restaurentForm.get('phone')?.hasError('required')">
+                  Enter phone number
+                </mat-error>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field appearance="outline">
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="Address" formControlName="address" />
+                <mat-error *ngIf="restaurentForm.get('address')?.hasError('required')">
+                  Enter address
+                </mat-error>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <button mat-button color="primary" type="submit">SUBMIT</button>
+              <button mat-stroked-button color="warn" type="reset">Reset</button>
+            </mat-grid-tile>
+
+          </mat-grid-list>
+        </form>
+          
+      </mat-card>
+    </div>
+  </div>
+</div>
